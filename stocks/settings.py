@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,6 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-94)_(xi(-6x+3jwm8kjlbs6tz=(rj13ht!-+6a5s2n8ad$_m-&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+import os
+import django_heroku
+import dj_database_url
+from decouple import config
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -48,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleare',
 ]
 
 ROOT_URLCONF = 'stocks.urls'
